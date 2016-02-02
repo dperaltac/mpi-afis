@@ -47,4 +47,4 @@ clean:
 	rm -f $(OBJECTS) $(OBJECTSD) $(COBJECTS) $(EXECUTABLE) $(EXECUTABLED)
 
 mrproper: clean
-	rm -r doc/*
+	rm -r doc/latex doc/html
