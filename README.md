@@ -1,7 +1,10 @@
 # mpi-afis
 Parallel framework for fingerprint identification.
+Source code for the framework described in the following papers:
+- D. Peralta, I. Triguero, R. Sanchez-Reillo, F. Herrera, J.M. Benítez. **Fast Fingerprint Identification for Large Databases**. *Pattern Recognition* 47:2 (2014) 588–602. doi: 10.1016/j.patcog.2013.08.002
+- D. Peralta, I. Triguero, S. García, F. Herrera, J.M. Benítez. **DPD-DFF: A Dual Phase Distributed Scheme with Double Fingerprint Fusion for Fast and Accurate Identification in Large Databases**. Submitted to *Information Fusion*.
 
-The project can be executed by executing:
+The project can be compiled by executing:
 
 `make`
 
