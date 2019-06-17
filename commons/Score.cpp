@@ -1,5 +1,4 @@
 #include <string>
-#include "mpi.h"
 
 #include "Score.h"
 using namespace std;
@@ -41,6 +40,10 @@ Score & Score::operator=(const Score &s)
 	return *this;
 }
 
+
+#ifdef MPI_VERSION
+#include "mpi.h"
+
 MPI::Datatype Score::getDatatype()
 {
 	MPI::Datatype obj_mpi;
@@ -61,3 +64,5 @@ MPI::Datatype Score::getDatatype()
 
 	return obj_mpi;
 }
+
+#endif

@@ -1,12 +1,12 @@
 # The compiler to use.
-CC = mpiCC
+CC = g++
 
 # Directories for Includes and Common clases
 IDIR =../include/
 CDIR =../commons/
 
 # Compiler options
-CFLAGS= -Wall -O2 -I$(IDIR)
+CFLAGS= -Wall -O2 -I$(IDIR) -std=c++98
 
 # Sources and Common clases sources
 SOURCES= main.cpp MCC.cpp Cylinder.cpp
