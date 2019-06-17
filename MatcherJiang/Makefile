@@ -1,5 +1,5 @@
 # The compiler to use.
-CC = mpiCC
+CC = g++
 
 # Directories for Includes and Common clases
 IDIR =../include
