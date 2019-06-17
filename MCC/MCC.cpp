@@ -863,3 +863,20 @@ void MCC::initialize()
 
 	compactCylinders();
 }
+
+
+/**
+ * Prints a fingerprint
+ * \param output Output stream
+ * \param F Fingerprint
+ */
+ostream& operator<<(ostream& output, const MCC& F)
+{
+	output << (Fingerprint &)F << endl;
+	
+	for(unsigned int i = 0; i < F.cylinders.size(); ++i)
+		output << "Cylinder " << i << ": " << F.cylinders[i] << endl;
+	output << endl;
+	
+	return output;
+}

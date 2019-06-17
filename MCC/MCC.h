@@ -113,6 +113,9 @@ class MCC : public Fingerprint
 			*/
 		virtual void initialize();
 		
+		//friend operators
+		friend std::ostream& operator<<(std::ostream& output, const MCC& F);
+		
 		
 	protected:
 		
@@ -246,6 +249,7 @@ class MCC : public Fingerprint
 			* \return the vector of assignment of cylinders
 			*/
 		void consolidationLGSR(vector <pair <int,int> > &best, Matrix <float> & gamma, unsigned int nP, vector <Cylinder> const & cA, vector <Cylinder> const & cB) const;
+		
 };
 
 
