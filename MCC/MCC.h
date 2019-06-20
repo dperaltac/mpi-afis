@@ -120,7 +120,7 @@ class MCC : public Fingerprint
 		 * Prints the cylinders of a fingerprint
 		 * \param output Output stream
 		 */
-		void printCylinders(std::ostream &output = std::cout) const;
+		void printCylinders(std::ostream &output = std::cout, char sep=' ') const;
 		
 		
 	protected:

@@ -879,13 +879,13 @@ ostream& operator<<(ostream& output, const MCC& F)
 }
 
 
-void MCC::printCylinders(ostream& output) const
+void MCC::printCylinders(ostream& output, char sep) const
 {
 	for(auto i = cylinders.begin(); i != cylinders.end(); ++i)
 	{
 		output << i->getCM(0);
 		for(unsigned int j = 1; j < i->getNumCells(); ++j)
-			output << "," << i->getCM(j);
+			output << sep << i->getCM(j);
 		output << endl;
 	}
 }
