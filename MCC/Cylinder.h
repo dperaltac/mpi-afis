@@ -316,24 +316,24 @@ class Cylinder : public Minutia
         // Constants
     static const unsigned int R = 70; //!< Cylinder radius (in pixel)
     static const unsigned int Nd = 6; //!< Number of cylinder sections
-    static const float SIGMAS = 9.3333333; //!< Standard deviation in the spacial contribution
+    static constexpr float SIGMAS = 9.3333333; //!< Standard deviation in the spacial contribution
     static const int OMEGA = 50; //!< Offset applied to enlarge the convex hull (in pixels)
-    static const float MINME = 0.6; //!< Minimum number of matching elements in two matchable cylinders
-    static const float TAUPSI = 400; //!< Sigmoid parameter 2 for function Psi
-    static const float DELTAZETA = 1.57079633; //!< Maximum global rotation allowed between two templates
-    static const float DELTAXY = 256; //!< Maximum distance between two templates
+    static constexpr float MINME = 0.6; //!< Minimum number of matching elements in two matchable cylinders
+    static constexpr float TAUPSI = 400; //!< Sigmoid parameter 2 for function Psi
+    static constexpr float DELTAZETA = 1.57079633; //!< Maximum global rotation allowed between two templates
+    static constexpr float DELTAXY = 256; //!< Maximum distance between two templates
     
 		static const unsigned int MINM = 4; //!< Minimum number of minutiae for a cylinder to be valid
-		static const float RNEIGHBORHOODRADIUS = 98; //R+NEIGHBORHOODRADIUS;
-		static const float MINVC = 0.75; //!< Minimum number of valid cells for a cylinder to be valid
+		static constexpr float RNEIGHBORHOODRADIUS = 98; //R+NEIGHBORHOODRADIUS;
+		static constexpr float MINVC = 0.75; //!< Minimum number of valid cells for a cylinder to be valid
 
 
     // Constants for performance optimization
-    static const float ISIGMAD = 1.43239448783; //1.0/SIGMAD;
-    static const float DELTAD = 1.047197551; //(2.0*PI)/Nd;
-    static const float GAUSSIANDEN = 0.042743816; //1.0 / (SIGMAS * sqrt(2*PI));
-    static const float ISIGMASQ2 = 0.005739796; //1.0 / (2.0*SIGMAS*SIGMAS);
-    static const float NEIGHBORHOODRADIUS = 28; //3*SIGMAS;
+    static constexpr float ISIGMAD = 1.43239448783; //1.0/SIGMAD;
+    static constexpr float DELTAD = 1.047197551; //(2.0*PI)/Nd;
+    static constexpr float GAUSSIANDEN = 0.042743816; //1.0 / (SIGMAS * sqrt(2*PI));
+    static constexpr float ISIGMASQ2 = 0.005739796; //1.0 / (2.0*SIGMAS*SIGMAS);
+    static constexpr float NEIGHBORHOODRADIUS = 28; //3*SIGMAS;
     
     // Constants depending on parameters
     static unsigned int NUMCELLS;

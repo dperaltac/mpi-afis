@@ -116,6 +116,12 @@ class MCC : public Fingerprint
 		//friend operators
 		friend std::ostream& operator<<(std::ostream& output, const MCC& F);
 		
+		/**
+		 * Prints the cylinders of a fingerprint
+		 * \param output Output stream
+		 */
+		void printCylinders(std::ostream &output = std::cout) const;
+		
 		
 	protected:
 		
@@ -123,24 +129,24 @@ class MCC : public Fingerprint
 
 		// Constants
 		static const unsigned int Nd = 6; //!< Number of cylinder sections
-		static const float SIGMAD = 0.698131700798; //!< Standard deviation in the directional contribution
-		static const float MUP = 20; //!< Sigmoid parameter 1 in the computation of n_P
-		static const float TAUP = 0.4; //!< Sigmoid parameter 2 in the computation of n_P
+		static constexpr float SIGMAD = 0.698131700798; //!< Standard deviation in the directional contribution
+		static constexpr float MUP = 20; //!< Sigmoid parameter 1 in the computation of n_P
+		static constexpr float TAUP = 0.4; //!< Sigmoid parameter 2 in the computation of n_P
 		static const unsigned int MINNP = 4; //!< Minimun number of minutiae in the computation of n_P
 		static const unsigned int MAXNP = 12; //!< Maximum number of minutiae in the computation of n_P
-		static const float WR = 0.5; //!< Weight parameter in Relaxation computation
-		static const float MUP1 = 5; //!< Sigmoid parameter 1 in the computation of d_1 relaxation
-		static const float TAUP1 = -1.6; //!< Sigmoid parameter 2 in the computation of d_1 relaxation
-		static const float MUP2 = 0.261799387799; //!< Sigmoid parameter 1 in the computation of d_2 relaxation
-		static const float TAUP2 = -30; //!< Sigmoid parameter 2 in the computation of d_2 relaxation
-		static const float MUP3 = 0.261799387799; //!< Sigmoid parameter 1 in the computation of d_3 relaxation
-		static const float TAUP3 = -30; //!< Sigmoid parameter 2 in the computation of d_3 relaxation
+		static constexpr float WR = 0.5; //!< Weight parameter in Relaxation computation
+		static constexpr float MUP1 = 5; //!< Sigmoid parameter 1 in the computation of d_1 relaxation
+		static constexpr float TAUP1 = -1.6; //!< Sigmoid parameter 2 in the computation of d_1 relaxation
+		static constexpr float MUP2 = 0.261799387799; //!< Sigmoid parameter 1 in the computation of d_2 relaxation
+		static constexpr float TAUP2 = -30; //!< Sigmoid parameter 2 in the computation of d_2 relaxation
+		static constexpr float MUP3 = 0.261799387799; //!< Sigmoid parameter 1 in the computation of d_3 relaxation
+		static constexpr float TAUP3 = -30; //!< Sigmoid parameter 2 in the computation of d_3 relaxation
 		static const unsigned int NREL = 5; //!<Number of relaxation iterations for LSSR and LSAR
 		
 		static const string valid_args;
 
 		// Constants for performance optimization
-		static const float RNEIGHBORHOODRADIUS = 98; //R+NEIGHBORHOODRADIUS;
+		static constexpr float RNEIGHBORHOODRADIUS = 98; //R+NEIGHBORHOODRADIUS;
 
 		// Parameters
 		static unsigned int Ns; //!< Number of cells along the cylinder diameter

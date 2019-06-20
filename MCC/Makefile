@@ -6,7 +6,7 @@ IDIR =../include/
 CDIR =../commons/
 
 # Compiler options
-CFLAGS= -Wall -O2 -I$(IDIR) -std=c++98
+CFLAGS= -Wall -O2 -I$(IDIR)
 
 # Sources and Common clases sources
 SOURCES= main.cpp MCC.cpp Cylinder.cpp

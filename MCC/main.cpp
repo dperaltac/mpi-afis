@@ -39,8 +39,8 @@ int main(int argc, char * argv[])
 	a1.initialize();
 	a2.initialize();
 	
-	cout << "First fingerprint: " << a1 << endl;
-	cout << "Second fingerprint: " << a2 << endl;
+	cout << "First fingerprint: " << endl;
+	a1.printCylinders(cout);
 
 	cout << a1.match(a2) << endl;
 

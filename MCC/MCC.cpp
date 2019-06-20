@@ -869,14 +869,23 @@ void MCC::initialize()
  * Prints a fingerprint
  * \param output Output stream
  * \param F Fingerprint
+ * \return The output stream
  */
 ostream& operator<<(ostream& output, const MCC& F)
 {
 	output << (Fingerprint &)F << endl;
-	
-	for(unsigned int i = 0; i < F.cylinders.size(); ++i)
-		output << "Cylinder " << i << ": " << F.cylinders[i] << endl;
-	output << endl;
-	
+	F.printCylinders(output);
 	return output;
+}
+
+
+void MCC::printCylinders(ostream& output) const
+{
+	for(auto i = cylinders.begin(); i != cylinders.end(); ++i)
+	{
+		output << i->getCM(0);
+		for(unsigned int j = 1; j < i->getNumCells(); ++j)
+			output << "," << i->getCM(j);
+		output << endl;
+	}
 }
