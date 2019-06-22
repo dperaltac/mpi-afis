@@ -148,14 +148,20 @@ class Cylinder : public Minutia
          * Returns the number of cells of the cylinder
          * \return the number of cells of the cylinder
          */
-        static unsigned int getNumCells();
-
-        /**
-         * Set the cmVector value at position i
-         * \param i index of the cmVector
-         * \param v is the value to set
-         */
-        void setCM(int i, float v);
+				static unsigned int getNumCells();
+				
+				/**
+				 * Set the cmVector value at position i
+				 * \param i index of the cmVector
+				 * \param v is the value to set
+				 */
+				void setCM(int i, float v);
+				
+				/**
+				 * Set the cmVector
+				 * \param v is the value to set
+				 */
+				void setCM(const float *v);
 
         /**
          * Set the cmBit1 value at position i
@@ -384,6 +390,12 @@ inline void Cylinder::setCM(int i, float v)
 {
     cmVector[i] = v;
 }
+
+inline void Cylinder::setCM(const float *v)
+{
+	cmVector.assign(v, v + NUMCELLS);
+}
+
 
 inline bool Cylinder::getB1(int i) const
 {

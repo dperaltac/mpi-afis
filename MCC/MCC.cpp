@@ -41,6 +41,38 @@ MCC::MCC(const MCC &fp) : Fingerprint(fp)
 }
 
 
+MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm) : Fingerprint()
+{
+	int num_cylinders = xyt.rows();
+	
+	if(xyt.rows() != cylinderscm.rows())
+	{
+		cerr << "ERROR in MCC constructor: xyt and cylinderscm must have the same number of rows" << endl;
+		return;
+	}
+	
+	if(xyt.cols() != 3)
+	{
+		cerr << "ERROR in MCC constructor: xyt must have 3 columns (for x, y and t)" << endl;
+		return;
+	}
+	
+	if(cylinderscm.cols() != (int)Cylinder::getNumCells())
+	{
+		cerr << "ERROR in MCC constructor: cylinderscm does not have the size expected. The parameters used to create the cylinders were different than those used to configure this fingerprint." << endl;
+		return;
+	}
+		
+	cylinders.resize(num_cylinders);
+	
+	for(int i = 0; i < num_cylinders; ++i)
+	{
+		cylinders[i] = Cylinder(i, xyt(i, 0), xyt(i, 1), xyt(i, 2));
+		cylinders[i].setCM(cylinderscm[i]);
+		cylinders[i].setValidity(true);
+	}
+}
+
 int MCC::configureAlgorithm(unsigned int ns, int cons, bool ch, int fus, bool pbit)
 {
 // 	Fingerprint::configureAlgorithm();

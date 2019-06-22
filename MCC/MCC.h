@@ -33,11 +33,17 @@ class MCC : public Fingerprint
 		/** Default constructor
 			*/
 		MCC();
-
+		
 		/** Copy constructor
-			* \param fp Other fingerprint
-			*/
+		 * \param fp Other fingerprint
+		 */
 		MCC(const MCC &fp);
+		
+		/** Constructor to load the cylinders of a fingerprint
+		 * \param xyt Matrix containing 1 row per cylinder, and 3 columns (X, Y and T)
+		 * \param cylinderscm Matrix containing 1 row per cylinder, each row is the vector associated to the cylinder. Only valid cylinders are allowed.
+		 */
+		MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm);
 
 		/** Parameter configuration
 			* \param ns Number of cells in each side of the cylinder base
