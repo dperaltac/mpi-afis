@@ -56,7 +56,7 @@ MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm, const strin
 		cerr << "ERROR in MCC constructor: cylinderscm does not have the size expected. The parameters used to create the cylinders were different than those used to configure this fingerprint." << endl;
 		return;
 	}
-		
+	
 	cylinders.resize(num_cylinders);
 	
 	for(int i = 0; i < num_cylinders; ++i)
@@ -65,6 +65,11 @@ MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm, const strin
 		cylinders[i].setCM(cylinderscm[i]);
 		cylinders[i].setValidity(true);
 	}
+}
+
+
+MCC::MCC(const Matrix<float> &xyt, const string &identifier) : Fingerprint(xyt, identifier)
+{
 }
 
 int MCC::configureAlgorithm(unsigned int ns, int cons, bool ch, int fus, bool pbit)
