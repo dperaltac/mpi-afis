@@ -46,7 +46,7 @@ class Fingerprint
 		 * \param xyt Matrix containing 1 row per minutia, and 3 columns (X, Y and T). The quality is set to 100, and the type to "other".
 		 * \param identifier Optional name for the fingerprint
 		 */
-		Fingerprint(const Matrix<float> &xyt, const std::string &identifier = "");
+		Fingerprint(const Matrix<int> &xyt, const std::string &identifier = "");
 
 		/**
 			* Assignment operator

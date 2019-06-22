@@ -44,13 +44,13 @@ class MCC : public Fingerprint
 		 * \param cylinderscm Matrix containing 1 row per cylinder, each row is the vector associated to the cylinder. Only valid cylinders are allowed.
 		 * \param identifier Optional name for the fingerprint
 		 */
-		MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm, const std::string &identifier = "");
+		MCC(const Matrix<int> &xyt, const Matrix<float> &cylinderscm, const std::string &identifier = "");
 		
 		/** Constructor to load the minutiae of a fingerprint from a matrix
 		 * \param xyt Matrix containing 1 row per cylinder, and 3 columns (X, Y and T)
 		 * \param identifier Optional name for the fingerprint
 		 */
-		MCC(const Matrix<float> &xyt, const std::string &identifier = "");
+		MCC(const Matrix<int> &xyt, const std::string &identifier = "");
 
 		/** Parameter configuration
 			* \param ns Number of cells in each side of the cylinder base

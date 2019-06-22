@@ -80,7 +80,7 @@ Fingerprint& Fingerprint::operator=(const Fingerprint& other)
 }
 
 
-Fingerprint::Fingerprint(const Matrix<float> &xyt, const string &identifier) :
+Fingerprint::Fingerprint(const Matrix<int> &xyt, const string &identifier) :
 id(identifier),
 minutiae(),
 distanceMatrix(),
@@ -105,7 +105,7 @@ selected_classifier(-1)
 	
 	for(int i = 0; i < num_minutiae; ++i)
 	{
-		minutiae[i] = Minutia(i, xyt(i, 0), xyt(i, 1), xyt(i, 2), 100, typeMin::OTH);
+		minutiae[i] = Minutia(i, xyt(i, 0), xyt(i, 1), xyt(i, 2)*2, 100, typeMin::OTH);
 	}
 }
 
