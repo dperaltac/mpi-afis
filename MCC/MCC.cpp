@@ -41,7 +41,7 @@ MCC::MCC(const MCC &fp) : Fingerprint(fp)
 }
 
 
-MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm, const string &identifier) : Fingerprint(xyt, identifier)
+MCC::MCC(const Matrix<int> &xyt, const Matrix<float> &cylinderscm, const string &identifier) : Fingerprint(xyt, identifier)
 {
 	int num_cylinders = xyt.rows();
 	
