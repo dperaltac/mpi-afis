@@ -68,7 +68,7 @@ MCC::MCC(const Matrix<int> &xyt, const Matrix<float> &cylinderscm, const string 
 }
 
 
-MCC::MCC(const Matrix<float> &xyt, const string &identifier) : Fingerprint(xyt, identifier)
+MCC::MCC(const Matrix<int> &xyt, const string &identifier) : Fingerprint(xyt, identifier)
 {
 }
 
