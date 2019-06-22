@@ -12,7 +12,7 @@
 #include <iostream>
 #include "Minutia.h"
 
-Minutia::Minutia() : index(-1), X(0), Y(0), T(0), quality(-1), type(RIG)
+Minutia::Minutia() : index(-1), X(0), Y(0), T(0), quality(-1), type(OTH)
 {
 }
 

@@ -41,19 +41,13 @@ MCC::MCC(const MCC &fp) : Fingerprint(fp)
 }
 
 
-MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm) : Fingerprint()
+MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm, const string &identifier) : Fingerprint(xyt, identifier)
 {
 	int num_cylinders = xyt.rows();
 	
 	if(xyt.rows() != cylinderscm.rows())
 	{
 		cerr << "ERROR in MCC constructor: xyt and cylinderscm must have the same number of rows" << endl;
-		return;
-	}
-	
-	if(xyt.cols() != 3)
-	{
-		cerr << "ERROR in MCC constructor: xyt must have 3 columns (for x, y and t)" << endl;
 		return;
 	}
 	
@@ -67,7 +61,7 @@ MCC::MCC(const Matrix<float> &xyt, const Matrix<float> &cylinderscm) : Fingerpri
 	
 	for(int i = 0; i < num_cylinders; ++i)
 	{
-		cylinders[i] = Cylinder(i, xyt(i, 0), xyt(i, 1), xyt(i, 2));
+		cylinders[i].setMinutia(minutiae[i]);
 		cylinders[i].setCM(cylinderscm[i]);
 		cylinders[i].setValidity(true);
 	}

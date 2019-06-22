@@ -35,12 +35,18 @@ class Fingerprint
 
 		/** Default destructor */
 		virtual ~Fingerprint();
-
+		
 		/**
-			* Copy constructor
-			* \param other Object to copy from
-			*/
+		 * Copy constructor
+		 * \param other Object to copy from
+		 */
 		Fingerprint(const Fingerprint& other);
+		
+		/** Constructor to load the minutiae of a fingerprint
+		 * \param xyt Matrix containing 1 row per minutia, and 3 columns (X, Y and T). The quality is set to 100, and the type to "other".
+		 * \param identifier Optional name for the fingerprint
+		 */
+		Fingerprint(const Matrix<float> &xyt, const std::string &identifier = "");
 
 		/**
 			* Assignment operator

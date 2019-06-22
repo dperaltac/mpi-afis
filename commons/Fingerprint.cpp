@@ -79,6 +79,37 @@ Fingerprint& Fingerprint::operator=(const Fingerprint& other)
 	return *this;
 }
 
+
+Fingerprint::Fingerprint(const Matrix<float> &xyt, const string &identifier) :
+id(identifier),
+minutiae(),
+distanceMatrix(),
+neighbourhood(),
+ridgeCount(),
+fpclass('U'),
+w(0),
+h(0),
+binaryImage(),
+featurevector(),
+selected_classifier(-1)
+{
+	int num_minutiae = xyt.rows();
+	
+	if(xyt.cols() != 3)
+	{
+		cerr << "ERROR in Fingerprint constructor: xyt must have 3 columns (for x, y and t)" << endl;
+		return;
+	}
+	
+	minutiae.resize(num_minutiae);
+	
+	for(int i = 0; i < num_minutiae; ++i)
+	{
+		minutiae[i] = Minutia(i, xyt(i, 0), xyt(i, 1), xyt(i, 2), 100, typeMin::OTH);
+	}
+}
+
+
 void Fingerprint::addMinutia(Minutia add)
 {
 	minutiae.push_back(add);
