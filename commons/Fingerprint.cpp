@@ -438,7 +438,7 @@ void Fingerprint::computeDistances(){
 float Fingerprint::getDistance(unsigned int i, unsigned int j) const{
 
     if (i < minutiae.size() && j < minutiae.size() && !distanceMatrix.empty()) {
-        return distanceMatrix.Get(i,j);
+        return distanceMatrix(i,j);
     } else {
         return -1;
     }
@@ -596,7 +596,7 @@ void Fingerprint::computeRidgeCount(){
 int Fingerprint::getRidgeCount(unsigned int i, unsigned int j) const{
 
     if (i < minutiae.size() && j < minutiae.size() && !ridgeCount.empty()) {
-        return ridgeCount.Get(i,j);
+        return ridgeCount(i,j);
     } else {
         return -1;
     }
@@ -625,7 +625,7 @@ ostream& operator<<(ostream& output, const Fingerprint& F){
         output << "Distances: " << endl;
         for (i=0; i<(int)F.minutiae.size(); i++) {
             for (j=0; j<(int)F.minutiae.size(); j++) {
-                output << setprecision(6) << setw(7) << F.distanceMatrix.Get(i,j) << " ";
+                output << setprecision(6) << setw(7) << F.distanceMatrix(i,j) << " ";
             }
             output << endl;
         }
@@ -645,7 +645,7 @@ ostream& operator<<(ostream& output, const Fingerprint& F){
         output << "Ridge Count: " << endl;
         for (i=0; i<(int)F.minutiae.size(); i++) {
             for (j=0; j<(int)F.minutiae.size(); j++) {
-                output << setw(3) << F.ridgeCount.Get(i,j) << " ";
+                output << setw(3) << F.ridgeCount(i,j) << " ";
             }
             output << endl;
         }
