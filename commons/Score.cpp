@@ -41,7 +41,7 @@ Score & Score::operator=(const Score &s)
 }
 
 
-#ifdef MPI_VERSION
+#ifdef COMPILE_USING_MPI
 #include "mpi.h"
 
 MPI::Datatype Score::getDatatype()

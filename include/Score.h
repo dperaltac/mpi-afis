@@ -11,7 +11,7 @@
 #ifndef SCORE_H
 #define SCORE_H
 
-#ifdef MPI_VERSION
+#ifdef COMPILE_USING_MPI
 #include "mpi.h"
 #endif
 
@@ -62,7 +62,7 @@ public:
 
 	Score & operator=(const Score &s);
 
-	#ifdef MPI_VERSION
+	#ifdef COMPILE_USING_MPI
 	static MPI::Datatype getDatatype();
 	#endif
 

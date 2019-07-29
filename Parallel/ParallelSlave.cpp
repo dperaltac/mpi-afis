@@ -98,7 +98,7 @@ void ParallelSlave::sendStopSignal(const Score &match) const
 		if(k != getProcessID())
 			MPI::COMM_WORLD.Isend(&found, 1, MPI::BOOL, k, TAG_OFFSET*iteration + TAG_FOUND);
 
-		MPI::COMM_WORLD.Isend(&match, 1, mpi_pair_t, MASTER_ID, TAG_OFFSET*iteration + TAG_MATCH);
+	MPI::COMM_WORLD.Isend(&match, 1, mpi_pair_t, MASTER_ID, TAG_OFFSET*iteration + TAG_MATCH);
 }
 
 

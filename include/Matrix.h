@@ -248,6 +248,13 @@ public:
 		 * For non-square matrices a new matrix is reserved in memory and the old one is deleted.
 		 */
 		void transpose();
+		
+		/**
+		 * Reads a matrix from a csv
+		 * \param filename Name of the csv file
+		 * \param removelast Determines if the last column of the file should be read or not
+		 */
+		void readFromCSV(const std::string &filename, bool removelast = false);
 
 private:
     int nRows; ///< Number of rows
@@ -573,5 +580,47 @@ inline T** Matrix<T>::getPointer() { return contents; }
 template <typename T>
 inline T* Matrix<T>::asVector() { return (contents == 0) ? 0 : contents[0]; }
 
+template <typename T>
+void Matrix<T>::readFromCSV(const std::string &filename, bool removelast)
+{
+	std::ifstream mfile(filename.c_str());
+	std::string buffer, token;
+	
+	// Read first line
+	mfile >> buffer;
+	
+	int numcols = std::count(buffer.begin(), buffer.end(), ',');
+	
+	if(removelast)
+		numcols--;
+	
+	int numlines = std::count(std::istreambuf_iterator<char>(mfile),
+														std::istreambuf_iterator<char>(), '\n');
+	
+	// Initialize the matrix
+	this->resize(numlines, numcols);
+	
+	// Reset the flags and position of the file
+	mfile.clear();
+	mfile.seekg(0, std::ios::beg);
+	
+	std::stringstream ss;
+	
+	for(int i = 0; i < numlines; ++i)
+	{
+		mfile >> buffer;
+		ss.str(buffer);
+		
+		for(int j = 0; j < numcols; ++j)
+		{
+			std::getline(ss, token, ',');
+			
+			if(token == "NA")
+				contents[i][j] = std::numeric_limits<double>::min();
+			else
+				contents[i][j] = atof(token.c_str());
+		}
+	}
+}
 
 #endif

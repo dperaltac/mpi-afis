@@ -10,7 +10,7 @@ PDIR =Parallel/
 BINDIR =bin/
 
 # Compiler options -Weffc++
-CFLAGS= -Wall -O2 -fopenmp -I$(IDIR) -I$(JIANGDIR) -I$(MCCDIR)
+CFLAGS= -Wall -O2 -fopenmp -I$(IDIR) -I$(JIANGDIR) -I$(MCCDIR) -DCOMPILE_USING_MPI
 
 # Sources and Common clases sources
 SOURCES= $(PDIR)genericMatching.cpp
@@ -35,9 +35,11 @@ doc:
 	doxygen Doxyfile
 
 $(EXECUTABLE): $(OBJECTS) $(COBJECTS)
+	mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) $(OBJECTS) $(COBJECTS) $(OBJECTFILES) -o $@ $(LDFLAGS)
 
 $(EXECUTABLED): $(OBJECTSD) $(COBJECTS)
+	mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) $(OBJECTSD) $(COBJECTS) $(OBJECTFILES) -o $@ $(LDFLAGS)
 
 .cpp.o:
