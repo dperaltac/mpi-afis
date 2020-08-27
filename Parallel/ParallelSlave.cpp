@@ -41,7 +41,6 @@ void ParallelSlave::loadInitializeDBFile(const vector<string> &filelists, unsign
 void ParallelSlave::loadDBFile(const vector<string> &filelists, unsigned int quality)
 {
 	vector<string> filenames;
-	vector<string>::iterator fname;
 	
 	// There should be either:
 	// - A single algorithm and any number of fingers
@@ -81,7 +80,7 @@ void ParallelSlave::loadDBFile(const vector<string> &filelists, unsigned int qua
 			fp_list[i][j] = newFingerprint(j);
 
 			if(fp_list[i][j]->readFile(filenames[begin+i], quality))
-				cerr << "WARNING: Process " << getProcessID() << ": Error when reading file " + *fname << endl;
+				cerr << "WARNING: Process " << getProcessID() << ": Error when reading file " + filelists[j] << endl;
 		}
 	}
 
