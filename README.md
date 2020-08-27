@@ -7,6 +7,8 @@ This package contains the source code for the framework described in the followi
 
 **mpi-afis** loads a set of template minutiae files (xyt or ISO 19794-2 formats), and iteratively loads input minutiae files, looking them up in the template database. Two matching algorithms are implemented, as well as several configuration options for the framework. **mpi-afis** is flexible in the number of processes and threads it executes; both can be specified in the parameters to suit the underlying hardware.
 
+Two pairs of fingerprints are provided as an example.
+
 The project can be compiled by executing:
 
 `make`
@@ -19,6 +21,7 @@ Example executions:
 
 ```
 ./DPDDFF -h
-mpirun -np 2 ./genericMatching -a mcc -k 10 -s m -t template_files.dat -i input_files.dat -N 8 -C LSSR
-mpirun -np 2 ./DPDDFF -a jiang,mcc -k 10 -s r -r 10 -t template_files_F1.dat,template_files_F2.dat -i input_files_F1.dat,input_files_F2.dat -v DD
+mpirun ./bin/genericMatching -t example_fps/test_template.dat -i example_fps/test_input.dat
+mpirun -np 2 ./bin/genericMatching -a mcc -k 10 -s m -t template_files.dat -i input_files.dat -N 8 -C LSSR
+mpirun -np 2 ./bin/DPDDFF -a jiang,mcc -k 10 -s r -r 10 -t template_files_F1.dat,template_files_F2.dat -i input_files_F1.dat,input_files_F2.dat -v DD
 ```
